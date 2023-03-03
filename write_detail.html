@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>    
+
+    <!-- Fontawesome -->
+    <link type="text/css" href="/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <!-- Pixel CSS -->
+    <link type="text/css" href="/css/neumorph/neumorphism.css" rel="stylesheet">
+    <link type="text/css" href="/css/write_detail.css" rel="stylesheet">
+</head>
+<body>
+    <div id="loading">
+        <img id="loading-image" src="/img/loading/mist.gif" alt="Loading...">
+    </div>
+
+    <!-- top navbar 부분 -->
+    <header class="header-global">
+        <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-light navbar-transparent navbar-theme-primary">
+            <div class="container position-relative">
+                <a class="navbar-brand shadow-soft py-2 px-3 rounded border border-light mr-lg-4">
+                    <img class="navbar-brand-dark" src="/img/top_logo.png" alt="">
+                    <img class="navbar-brand-light" src="/img/top_logo.png" alt="">
+                </a>
+
+                <div class="d-flex align-items-center">                    
+                    <a id="logout_btn" class="btn btn-primary d-md-inline-block font-weight-bold"><i class="fas fa-sign-out-alt"></i> Sign out</a>                    
+                </div>                
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="mt-9 mx-auto text-center">
+            <h1 class="h1">Last authentication</h1>
+        </div>
+
+        <div class="mt-5">
+            <div class="col-12 col-md-9 col-lg-6 mb-5 mb-lg-0 mx-auto">
+                <div class="card bg-primary shadow-soft border-light p-4">
+                    <div class="card-header text-center pb-0">
+                        <h2 class="h4" id="show_user_email"></h2>                        
+                    </div>
+                    <div class="card-body">
+                        <form action="#" class="mt-4">
+                            <div class="form-group">
+                                <label for="txtName">Name</label>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <span class="fa fa-address-card"></span>                                            
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" id="txtName" placeholder="name" aria-label="email adress">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="txtRelation">Your class</label>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <span class="fas fa-users"></span>
+                                        </span>
+                                    </div>
+                                    <select class="custom-select" id="txtRelation">                                        
+                                    </select>                                    
+                                </div>
+                            </div>                            
+
+                            <div class="form-group">
+                                <label for="txtSelfIntro">Self-Introduction</label>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <span class="fas fa-microphone-alt"></span>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" id="txtSelfIntro" placeholder="Let us know who you are; you can change it on My profile">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="auth_number">Authentication Number</label>
+                                    <div class="input-group mb-5">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <span class="fas fa-unlock-alt"></span>
+                                            </span>
+                                        </div>
+                                        <input class="form-control" id="auth_number" autocomplete="off" type="text" required>
+                                    </div>
+                                </div>                                
+                            </div>
+
+                            <button type="button" style="visibility: hidden;" class="btn btn-block btn-primary font-weight-bold" id="btnSubmitAuthNumber">Authentication</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    <!-- Core -->
+    <script src="/vendor/jquery/dist/jquery.min.js"></script>        
+    <script src="/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/vendor/headroom.js/dist/headroom.min.js"></script>
+
+    <!-- Vendor JS -->
+    <script src="/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+    <script src="/vendor/nouislider/distribute/nouislider.min.js"></script>
+    <script src="/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="/vendor/jarallax/dist/jarallax.min.js"></script>
+    <script src="/js/d_css/d_css.js"></script>
+    <script src="/vendor/jquery.counterup/jquery.counterup.min.js"></script>
+    <script src="/vendor/jquery-countdown/dist/jquery.countdown.min.js"></script>
+    <script src="/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="/vendor/prismjs/prism.js"></script>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- Neumorphism JS -->
+    <script src="/js/neumorph/neumorphism.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.7.0/firebase-analytics.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-auth.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-firestore.js"></script>
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="/js/facebookauth.js"></script>
+    <script src="/js/common_element.js"></script>
+    <script src="/js/write_detail.js"></script>
+</body>
+</html>

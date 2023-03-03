@@ -1,0 +1,41 @@
+  @font-face {
+    font-family: 'password';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/font/password.ttf);
+  }
+  
+  input.key {
+    font-family: 'password';
+    width: 100px; height: 16px;  
+  }
+
+#loading{       /* 배경 위에 덮는 반투명 레이어*/
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  display: block;
+  opacity: 0.7;
+  background-color: #fff;
+  z-index: 199;
+  text-align: center;
+}
+
+#loading-image{     /* 반투명 레이어 위에 있는 gif 로딩 이미지 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 200;       /* 화면 젤 위 navbar 가 z-index가 100 이라 일단 200으로 올림 */
+}
+
+.custom-select:focus{
+  font-size:1rem;
+  box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #ffffff;
+  border:0;
+}
+
+#auth_number{
+  font-family: 'password';
+}

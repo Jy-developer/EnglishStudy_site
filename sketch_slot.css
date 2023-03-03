@@ -1,0 +1,39 @@
+#rotary_app {
+  width: 100%;
+  height: 100%;
+
+  background: #212121;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.doors {
+  display: flex;
+}
+
+.door {
+  background: #fafafa;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.4) inset;
+
+  width: 100px;
+  height: 150px;
+  overflow: hidden;
+
+  border-radius: 1ex;
+  margin: 1ch;
+}
+
+.boxes {  
+  transition: transform 1s ease-in-out;
+}
+
+.my_rotary_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 3rem;
+}

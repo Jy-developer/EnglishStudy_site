@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+
+    <!-- Fontawesome -->
+    <link type="text/css" href="/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <!-- Pixel CSS -->
+    <link type="text/css" href="/css/neumorph/neumorphism.css" rel="stylesheet">
+    <link rel="stylesheet" href="/vendor/bootstrap-icons-1.5.0/bootstrap-icons.css">
+    <link type="text/css" href="/css/article_summary_view.css" rel="stylesheet">
+</head>
+<body>    
+    <!-- 글 정보 불러오는데 시간이 걸려서 그냥 띄움 -->
+    <div id="loading">
+        <img id="loading-image" src="/img/loading/mist.gif" alt="Loading...">
+    </div>
+    <!-- 여기까지 로딩이미지 코드 -->
+
+    <!-- top Navbar 부분 -->
+    <header class="header-global content">
+        <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-light navbar-transparent navbar-theme-primary">
+            <div class="container position-relative">
+                <a class="navbar-brand shadow-soft py-2 px-3 rounded border border-light mr-lg-4" onclick="my_custom_vars.toGallery();">
+                    <img class="navbar-brand-dark" src="/img/top_logo.png" alt="">
+                    <img class="navbar-brand-light" src="/img/top_logo.png" alt="">
+                </a>
+                <div class="navbar-collapse collapse">
+                    <h4 class="m-0" id="time_changing_msg"><small class="text-muted ml-0" id="nameToHello"></small></h4>                    
+                </div>
+                <div class="navbar-collapse collapse flex-row-reverse mr-3" id="navbar_global">
+                    <div class="navbar-collapse-header">
+                        <div class="row">
+                            <div class="col-6 collapse-brand">
+                                <a class="navbar-brand shadow-soft py-2 px-3 rounded border border-light">
+                                    <img src="/img/top_logo.png" alt="">
+                                </a>
+                            </div>
+                            <div class="col-6 collapse-close">
+                                <a href="#navbar_global" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link py-0 px-1" onclick="my_custom_vars.toWriteArticle();" data-toggle="tooltip" data-placement="bottom" title data-original-title="Write">
+                                <span class="nav-link-inner-text"><span class="fas fa-2x fa-pen-fancy mr-1"></span></span>                                
+                            </a>                            
+                        </li>
+                        <li class="nav-item">                            
+                            <a class="nav-link py-0 px-1" onclick="my_custom_vars.toGallery();" data-toggle="tooltip" data-placement="bottom" title data-original-title="Gallery">
+                                <span class="nav-link-inner-text"><span class="fas fa-2x fa-image mr-1"></span></span>                                
+                            </a>                            
+                        </li>                        
+                        <li class="nav-item">                            
+                            <a class="nav-link py-0 px-1" onclick="my_custom_vars.toNotice();" data-toggle="tooltip" data-placement="bottom" title data-original-title="Announcement">
+                                <span class="nav-link-inner-text"><i class="bi bi-megaphone-fill" style="font-size: 2rem;"></i></span>                                
+                            </a>                            
+                        </li>                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link py-2 px-1" data-toggle="dropdown">
+                                <span class="nav-link-inner-text"><span class="fas fa-2x fa-cog mr-1"></span></span>                                
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg">
+                                <div class="col-auto px-0" data-dropdown-content>
+                                    <div class="list-group list-group-flush">
+                                        <a class="list-group-item list-group-item-action d-flex align-items-center p-0 py-3 px-lg-4" onclick="my_custom_vars.toMyProfile();">
+                                            <span class="icon icon-sm icon-secondary"><span class="fas fa-users-cog"></span></span>
+                                            <div class="ml-4">
+                                                <span class="text-dark d-block">My Profile</span>
+                                                <span class="small">Edit my picture and profile</span>
+                                            </div>
+                                        </a>
+                                        <a class="list-group-item list-group-item-action d-flex align-items-center p-0 py-3 px-lg-4" id="a_quit_account_btn">
+                                            <span class="icon icon-sm icon-secondary"><span class="fas fa-door-open"></span></span>
+                                            <div class="ml-4">
+                                                <span class="text-dark d-block">Delete my account</span>
+                                                <span class="badge badge-sm badge-danger ml-2">Warning</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center">                    
+                    <a id="logout_btn" class="btn btn-primary d-none d-md-inline-block font-weight-bold"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+                    <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container my-4 my-flex-row content">
+        <div class="row flex-nowrap justify-content-center">
+            <!-- 사이드바 2개와 메인콘텐트 모두 mt-x 써서 마진 만들기 -->
+
+            <!-- 왼쪽 사이드바 -->
+            <div class="col-lg-3 bd-sidebar my_left_sidebar">
+                <div class="row my_left_sidebar my_media_adjust_left_sidebar">
+                    <div class="col-12 mt-7">
+                        <div class="card bg-primary shadow-soft border-light" id="div_left_summary">
+                            <div class="d-flex justify-content-center" style="align-items: baseline;">
+                                <p class="font-weight-bold pl-2 pt-1 mb-0" style="text-align: center; font-size: 1.75rem;">Summary</p>
+                                <a class="nav-link py-0 px-1 pl-3" onclick="downloadSummaryAsCSV();" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Download as CSV">
+                                    <span class="nav-link-inner-text"><span class="fas fa-2x fa-file-download mr-1" style="font-size: 1.5rem;"></span></span>
+                                </a>
+                            </div>
+                            <!-- 이하 js반복부분, P 태그는 타이틀, 그 아래 div는 학생이름 줄 반복 -->
+                            <!-- 아래가 학생 반 별 분류된 목록 표시 부분 -->
+                            <!-- <p class="font-weight-bold pl-2 pt-1 mb-0">Thurs 3rd class</p> -->
+                            <!-- 여기에 아래 div 태그가 사람 한명당 추가됨 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 가운데 본문 칼럼 -->
+            <main class="col-lg-4 py-md-3 px-lg-1 bd-content mt-5 my_main_content_column" role="main">
+                <!-- 이하 글 하나(h1, div)가 프로그램적 반복 나열되는 부분 -->
+            </main>
+
+            <!-- 우측 사이드바 -->
+            <div class="col-lg-3 bd-sidebar mt-7 my_right_sidebar">
+                <div class="my_right_sidebar my_media_adjust_right_sidebar" style="position: fixed; overflow: auto; max-height: 768px;">
+                    <h3 class="font-weight-bold text-center mb-0">Monthly Posts Graph</h3>
+                    <canvas id="postSummaryGraph" width="250px" height="250px"></canvas>
+                    <h3 class="font-weight-bold text-center mb-1 mt-3">Diary list</h3>
+                    <nav class="bd-links mb-5 text-muted" aria-label="Main navigation">
+                        <ul class="list-unstyled" id="ul_right_sidebar">
+                            <!-- 프로그래밍적 반복 부분 -->
+                        </ul>
+                    </nav>
+                </div>                
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Core -->
+    <script src="/vendor/jquery/dist/jquery.min.js"></script>        
+    <script src="/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/vendor/headroom.js/dist/headroom.min.js"></script>
+
+    <!-- Vendor JS -->
+    <script src="/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+    <script src="/vendor/nouislider/distribute/nouislider.min.js"></script>
+    <script src="/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="/js/underscore/underscore-umd-min.js"></script>
+    <script src="/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="/vendor/jarallax/dist/jarallax.min.js"></script>
+    <script src="/js/d_css/d_css.js"></script>
+    <script src="/vendor/jquery.counterup/jquery.counterup.min.js"></script>
+    <script src="/vendor/jquery-countdown/dist/jquery.countdown.min.js"></script>
+    <script src="/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="/vendor/prismjs/prism.js"></script>
+    <script src="/js/moment/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- Neumorphism JS -->
+    <script src="/js/neumorph/neumorphism.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.7.0/firebase-analytics.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-auth.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-firestore.js"></script>    
+    <script src="/__/firebase/8.7.0/firebase-storage.js"></script>
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="js/facebookauth.js"></script>
+    <script src="/js/common_element.js"></script>
+    <script src="/js/article_summary_view.js"></script>
+</body>
+</html>

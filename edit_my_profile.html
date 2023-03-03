@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+
+    <!-- Fontawesome -->
+    <link type="text/css" href="/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <!-- Pixel CSS -->
+    <link type="text/css" href="/css/neumorph/neumorphism.css" rel="stylesheet">
+    <link rel="stylesheet" href="/vendor/bootstrap-icons-1.5.0/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/edit_my_profile.css">
+</head>
+<body>    
+    <div id="loading">
+        <img id="loading-image" src="/img/loading/mist.gif" alt="Loading...">
+    </div>
+
+    <!-- top Navbar 부분 -->
+    <header class="header-global">
+        <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-light navbar-transparent navbar-theme-primary">
+            <div class="container position-relative">
+                <a class="navbar-brand shadow-soft py-2 px-3 rounded border border-light mr-lg-4" onclick="my_custom_vars.toGallery();">
+                    <img class="navbar-brand-dark" src="/img/top_logo.png" alt="">
+                    <img class="navbar-brand-light" src="/img/top_logo.png" alt="">
+                </a>
+                <div class="navbar-collapse collapse">
+                    <h4 class="m-0" id="time_changing_msg"><small class="text-muted ml-0" id="nameToHello"></small></h4>                    
+                </div>
+                <div class="navbar-collapse collapse flex-row-reverse mr-3" id="navbar_global">
+                    <div class="navbar-collapse-header">
+                        <div class="row">
+                            <div class="col-6 collapse-brand">
+                                <a class="navbar-brand shadow-soft py-2 px-3 rounded border border-light">
+                                    <img src="/img/top_logo.png" alt="">
+                                </a>
+                            </div>
+                            <div class="col-6 collapse-close">
+                                <a href="#navbar_global" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link py-0 px-1" onclick="my_custom_vars.toWriteArticle();" data-toggle="tooltip" data-placement="bottom" title data-original-title="Write">
+                                <span class="nav-link-inner-text"><span class="fas fa-2x fa-pen-fancy mr-1"></span></span>                                
+                            </a>                            
+                        </li>
+                        <li class="nav-item">                            
+                            <a onclick="my_custom_vars.toGallery();" class="nav-link py-0 px-1" data-toggle="tooltip" data-placement="bottom" title data-original-title="Gallery">
+                                <span class="nav-link-inner-text"><span class="fas fa-2x fa-image mr-1"></span></span>                                
+                            </a>                            
+                        </li>                        
+                        <li class="nav-item">                            
+                            <a class="nav-link py-0 px-1" onclick="my_custom_vars.toNotice();" data-toggle="tooltip" data-placement="bottom" title data-original-title="Announcement">
+                                <span class="nav-link-inner-text"><i class="bi bi-megaphone-fill" style="font-size: 2rem;"></i></span>                                
+                            </a>                            
+                        </li>                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link py-2 px-1" data-toggle="dropdown">
+                                <span class="nav-link-inner-text"><span class="fas fa-2x fa-cog mr-1"></span></span>                                
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg">
+                                <div class="col-auto px-0" data-dropdown-content>
+                                    <div class="list-group list-group-flush">
+                                        <a class="list-group-item list-group-item-action d-flex align-items-center p-0 py-3 px-lg-4" onclick="my_custom_vars.toMyProfile();">
+                                            <span class="icon icon-sm icon-secondary"><span class="fas fa-users-cog"></span></span>
+                                            <div class="ml-4">
+                                                <span class="text-dark d-block">My Profile</span>
+                                                <span class="small">Edit my picture and profile</span>
+                                            </div>
+                                        </a>
+                                        <a class="list-group-item list-group-item-action d-flex align-items-center p-0 py-3 px-lg-4" id="a_quit_account_btn">
+                                            <span class="icon icon-sm icon-secondary"><span class="fas fa-door-open"></span></span>
+                                            <div class="ml-4">
+                                                <span class="text-dark d-block">Delete my account</span>
+                                                <span class="badge badge-sm badge-danger ml-2">Warning</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center">                    
+                    <a id="logout_btn" class="btn btn-primary d-none d-md-inline-block font-weight-bold"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+                    <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="section bg-primary pt-0 section-lg">            
+            <div class="container mt-9">
+                <!-- 메인 페이지 -->                
+
+                <!-- 프로필 틀 -->
+                <div class="col-12 col-md-8 mt-5 mx-auto pt-7">
+                    <!-- Profile Card -->
+                    <div class="card bg-primary shadow-soft border-light mb-5 text-center">
+                        <div class="my_edited_profile-image shadow-inset border border-light bg-primary p-3 rounded mt-n6 mx-auto d-flex">                   
+                            <div class="flex-fill" style="position: relative;" id="div_upper_profile_img">
+                                <img id="img_profile" class="card-img-top p-0 rounded" alt="" onload="this.style.opacity = 1;">
+                                <i id="i_edit_btn_profimg" class="bi bi-plus-circle-fill"></i>
+                                
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div style="position: relative; display: inline-block;">
+                                <h3 class="h5 mb-2 mr-2 font-weight-bold" id="h3_user_name"></h3>
+                                <a aria-label="" class="icon icon-xs icon-facebook" id="a_mailto">
+                                    <span class="fas fa-envelope"></span>                                        
+                                </a>
+                            </div>                            
+                            <span class="h6 font-weight-normal text-gray mb-3" style="display:block;" id="span_my_relation"></span>
+                            <div style="position: relative;" class="mt-4">
+                                <p class="card-text px-7 mt-3 mb-3" id="p_my_selfintro"></p>
+                                
+                                <textarea class="form-control mb-4" id="textarea_edit_selfintro" rows="5" style="display: none;"></textarea>
+                                <button class="btn btn-primary mr-1 text-success" type="button" id="btn_save_profile_img_Storage" style="display: none;">
+                                    <span class="mr-1"><i class="bi bi-check-circle-fill"></i></span>
+                                </button>
+                                <button class="btn btn-primary mr-1 text-success" type="button" id="btn_edit_selfintro">
+                                    <span class="mr-1"><i class="bi bi-pencil-fill"></i></span>Edit
+                                </button>
+                                <div>
+                                    <button class="btn btn-primary mr-3 text-success" type="button" id="btn_save_selfintro" style="display: none;">
+                                        <span class="mr-1"><i class="bi bi-check-circle-fill"></i></span>Save
+                                    </button>
+                                    <button class="btn btn-primary mr-1 text-danger" type="button" id="btn_save_selfintro_cancel" style="display: none;">
+                                        <span class="mr-1"><i class="bi bi-x-circle-fill"></i></span>Cancel
+                                    </button>
+                                </div>                                
+                            </div>
+                            <input id="input_profile_img" type="file" style="display: none;">
+                            <div class="row mt-5 px-7 justify-content-center" id="div_badge_panel">
+                                <!-- 프로그래밍적 반복 배지 표시 부분 -->                                
+                            </div>
+                        </div>
+                    </div>                
+                </div>
+                <!-- 화면 하단 배지 안내 버튼 및 모달 -->
+                <div class="col-12 col-md-8 mt-5 mx-auto pt-5">
+                    <button type="button" class="btn btn-block btn-primary mb-4 mx-auto" data-toggle="modal" data-target="#modal-badge-guide" style="width: max-content;"><span class="fas fa-award mr-2" style="font-size:1.5rem"></span>About Badge</button>                    
+                </div>
+                <div class="modal fade" id="modal-badge-guide" tabindex="-1" role="dialog" aria-labelledby="modal-badge-guide" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="h6 modal-title mb-0" id="modal-title-default">About Badge</h2>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" style="white-space: pre-wrap;"><p>On top of building English skills, you can earn a new badge when certain conditions are met. The badges you've earned can be viewed on My Profile.</p><p>Here's a quick tip.
+1. When you've uploaded the <span style="font-weight: bold;">first journal</span>
+2. When you've completed <span style="font-weight: bold;">half of the number</span> of journals<br>     required per semester
+3. When you've completed <span style="font-weight: bold;">all the number</span> of journals<br>     required per semester
+4. When you've uploaded the journal that is more than<br>     <span style="font-weight: bold;">1,000 characters</span>
+5. When you've uploaded the journal with <span style="font-weight: bold;">lots of photos</span>
+6. When you've become the <span style="font-weight: bold;">first writer in the class</span></p></div>
+                            <div class="modal-footer">                                
+                                <button type="button" class="btn btn-primary text-success ml-auto" data-dismiss="modal">I Got It</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>          
+    </main>
+
+    <footer class="d-flex pb-5 pt-5 border-top border-light bg-primary">
+        <div class="container">        
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-center align-items-center mb-1">
+                        <div style="flex-grow: 1; visibility: hidden;">
+                            <button class="btn btn-pill" type="button" style="padding: 0.3rem 0.8rem;">
+                                <span class="mr-1"><i class="bi bi-envelope-fill"></i></span>
+                                Contact
+                            </button>
+                        </div>                        
+                        <img class="d-block" src="/img/top_logo.png" height="25" class="mb-3" alt="">
+                        <div class="d-flex flex-row-reverse" style="flex-grow: 1;">
+                            <button class="btn btn-pill" type="button" style="padding: 0.3rem 0.8rem;" id="btn_contact_administrator">
+                                <span class="mr-1"><i class="bi bi-envelope-fill"></i></span>
+                                Contact
+                            </button>
+                        </div>                        
+                    </div>
+                <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+                    <p class="font-weight-normal font-small mb-0">Copyright © Osaka Metropolitan University English Diary
+                        <span class="current-year">2021</span>. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core -->
+    <script src="/vendor/jquery/dist/jquery.min.js"></script>    
+    <script src="/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/vendor/headroom.js/dist/headroom.min.js"></script>
+
+    <!-- Vendor JS -->
+    <script src="/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+    <script src="/vendor/nouislider/distribute/nouislider.min.js"></script>
+    <script src="/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="/vendor/jarallax/dist/jarallax.min.js"></script>
+    <script src="/js/d_css/d_css.js"></script>
+    <script src="/vendor/jquery.counterup/jquery.counterup.min.js"></script>
+    <script src="/vendor/jquery-countdown/dist/jquery.countdown.min.js"></script>
+    <script src="/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="/vendor/prismjs/prism.js"></script>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- Neumorphism JS -->
+    <script src="/js/neumorph/neumorphism.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.7.0/firebase-analytics.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-auth.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-firestore.js"></script>    
+    <script src="/__/firebase/8.7.0/firebase-storage.js"></script>        
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="/js/facebookauth.js"></script>
+    <script src="/js/common_element.js"></script>
+    <script src="/js/edit_my_profile.js"></script>
+</body>
+</html>

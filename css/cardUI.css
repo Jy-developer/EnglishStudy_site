@@ -1,0 +1,204 @@
+.my-flex-row{
+  max-width: 1728px;      /* 최대 해상도가 1920px 일때 container 기준. 따라서 4k 해상도인 모니터에서 봐도 이보다 더 크게는 안되게 제한*/
+}
+
+.my_left_sidebar{
+  min-width: 190px;
+  max-width: 240px;
+}
+
+.my_right_sidebar{
+  min-width: 190px;
+  max-width: 240px;
+}
+
+.cards{
+    width: 100%;
+    /* max-width: 960px; */
+    margin: 60px auto;
+    /* padding: 1rem; */
+  }
+  
+  .my_card{
+    min-height: 593px;    
+    max-height: 593px;
+  }
+  .p_my_card{
+    flex: 1;    
+  }
+  
+  .clearfix:after,
+  .clearfix:before{
+    content: '';
+    display: table;
+    clear: both;    
+  }
+  
+  .my_card_top{
+    position: relative;
+    background: url(http://bdb.bertsozale.eus/images/grid-loading.gif) #d2d2d2;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 0;
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .my_card_top img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    display: block;
+  }
+  
+  .my_card_bottom{
+    padding: 1rem;
+    background: #fff;
+    border-radius: 0 0 4px 4px
+  }
+  
+  .card-col-0,
+  .card-col-1,
+  .card-col-2{
+    width: calc(33.3333333% - 24px);
+    /* margin: 0 6px; */
+    margin: 0 12px;
+    float: left;
+  }
+  
+  .my_card h2{
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+  
+  .my_card p{
+    color: #888;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+#loading{       /* 배경 위에 덮는 반투명 레이어*/
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  display: block;
+  opacity: 0.7;
+  background-color: #fff;
+  z-index: 199;
+  text-align: center;
+}
+
+#loading-image{     /* 반투명 레이어 위에 있는 gif 로딩 이미지 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 200;       /* 화면 젤 위 navbar 가 z-index가 100 이라 일단 200으로 올림 */
+}
+
+#card_container{
+  min-width: 930px;
+}
+
+.posting_img{
+  opacity: 0;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  -moz-transition: opacity 1s;  
+  
+  object-fit: cover;
+  height: inherit;
+  width: inherit;
+
+  margin: auto; 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;  
+
+  cursor: alias;
+}
+
+/* 일반 일기들 carousel 화살표및 indicator */
+.carousel-control-prev-icon::before{
+  font-size: 1rem;
+}
+.carousel-control-next-icon:before {
+  font-size: 1rem;
+}
+
+/* 첫 로그인시 보이는 임시 carousel */
+#first_modal_prev_carousel_indic::before{
+  font-size: 2rem;
+  color: #fff;
+}
+
+#first_modal_next_carousel_indic::before{
+  font-size: 2rem;
+  color: #fff;
+}
+
+.carousel-indicators .first_modal_li{
+  border : 2px solid #fff;
+}
+
+.carousel-indicators .first_modal_li.active{
+  background: #fff;
+}
+
+#ofBar{
+  background: rgb(249 247 241);
+  z-index: 999999999;
+  font-size: 16px;
+  color: #1c2540;
+  padding: 16px;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  width: 80%;
+  border-radius: 1rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-backdrop-filter: blur(4px)!important;
+  backdrop-filter: blur(4px)!important;
+  box-shadow: 0px 9px 24px 0px rgb(174 176 183 / 30%);
+  border: 1px solid #f7f5f5;
+}
+
+/* 이번주 luck 선정된 일기 */
+.choice_of_week{
+  box-shadow: rgb(255, 255, 236) 6px 6px 4px, rgb(255, 255, 236) -6px -6px 4px !important;  
+  /* 애니메이션 일단 넘 번잡해서 취소 */
+  /* animation-name: shining-border-choice-of-week;  
+  -o-animation-name: shining-border-choice-of-week;  
+  -moz-animation-name: shining-border-choice-of-week;  
+  -webkit-animation-name: shining-border-choice-of-week;    
+  animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-duration: 1s;
+  -o-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-direction: alternate; */
+}
+
+/* @keyframes shining-border-choice-of-week{
+  from{
+    box-shadow: rgb(184, 185, 190) 6px 6px 12px, rgb(255, 255, 255) -6px -6px 12px;
+  }
+  to{
+    box-shadow: 0px 0px 15px #3b5999;
+  }  
+} */

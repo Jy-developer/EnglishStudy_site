@@ -1,0 +1,76 @@
+ 
+#loading{       /* 배경 위에 덮는 반투명 레이어*/
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    display: block;
+    opacity: 0.7;
+    background-color: #fff;
+    z-index: 199;
+    text-align: center;
+}
+  
+#loading-image{     /* 반투명 레이어 위에 있는 gif 로딩 이미지 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 200;       /* 화면 젤 위 navbar 가 z-index가 100 이라 일단 200으로 올림 */
+}
+
+.my_edited_profile-image {
+    width: 20rem;
+    height: 20rem;
+}
+
+#img_profile{
+    opacity: 0;
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    height: 100%;
+}
+
+#btn_edit_selfintro{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);    
+    font-weight: bold;
+}
+
+#p_my_selfintro{
+    white-space: pre-wrap;
+}
+
+#a_mailto{
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(150%, 10%);
+}
+
+#i_edit_btn_profimg{
+    position: absolute;        
+    font-size: 2.5rem;
+
+    color: #18634B;
+    right: -2%;
+    bottom: -7%;
+}
+
+#div_upper_profile_img{
+    cursor: pointer;
+}
+
+#btn_save_profile_img_Storage{
+    position: absolute;
+    /* right: -64%;
+    bottom: 35%;     */
+    font-weight: bold;
+    
+    right: 0;
+    bottom: 583%;
+}

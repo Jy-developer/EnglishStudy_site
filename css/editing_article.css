@@ -1,0 +1,223 @@
+ 
+  #loading{       /* 배경 위에 덮는 반투명 레이어*/
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    display: block;
+    opacity: 0.7;
+    background-color: #fff;
+    z-index: 199;
+    text-align: center;
+  }
+  
+  #loading-image{     /* 반투명 레이어 위에 있는 gif 로딩 이미지 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 200;       /* 화면 젤 위 navbar 가 z-index가 100 이라 일단 200으로 올림 */
+  }
+
+  .my_comment_table_class tbody tr th, .my_comment_table_class tbody tr td{
+      vertical-align: middle;
+  }
+  
+  .my_comment_table_class tbody tr th{
+      text-align: center;
+  }
+  .my_avatar-2 {
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+}.my_avatar-3 {
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+}
+  .my_avatar-4 {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+}
+.my_avatar-5 {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+}
+.my_avatar-6 {
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+}
+
+/* 이하는 내가 가진 neuromorphism에 없어서 추가한 내용 */
+/* 우측 날짜별 일기 목록 보이게 하는 쪽 css */
+.bd-sidenav-group-link {
+    padding: .25rem .625rem .25rem .5rem;
+    font-weight: 500;
+    color: rgba(38,40,51,0.65);
+    border-radius: .25rem;
+    font-size: 1.1rem;
+}
+
+.bd-sidenav-group.active>.bd-sidenav-group-link {
+    color: rgba(38,40,51,0.85);
+}
+
+.bd-sidebar .nav {
+    padding-left: 1.25rem;    
+}
+
+.bd-sidebar .nav>li>a {
+    display: inline-block;
+    padding: .3rem .8rem;
+    font-size: .875rem;
+    color: rgba(38,40,51,0.65);
+    border-radius: .25rem;
+}
+
+.bd-sidebar .nav>li>a:hover, .bd-sidebar .nav>li>a:focus {
+    color: #2D4CC8;
+}
+
+.bd-sidebar .nav>.active>a, .bd-sidebar .nav>.active:hover>a, .bd-sidebar .nav>.active:focus>a {
+    font-weight: 500;
+    color: #2D4CC8;
+}
+
+.my_left_sidebar{
+    min-width: 190px;
+    max-width: 240px;
+}
+
+.my_right_sidebar{
+    min-width: 190px;
+    max-width: 240px;
+}
+.my_main_content_column{
+    min-width: 580px;
+    max-width: 1330px;
+}
+.my-flex-row{
+    max-width: 1728px;      /* 최대 해상도가 1920px 일때 container 기준. 따라서 4k 해상도인 모니터에서 봐도 이보다 더 크게는 안되게 제한*/
+}
+/* 사진 미리보기 div 관련 */
+ul.cvf_uploaded_files {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;    
+    padding-top: 10px;
+    overflow-x: auto;    
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.div_surround_ul_uploded_files{
+    /* overflow-y: auto; */
+    /* overflow-x: auto; */    
+    white-space: nowrap;
+    border-radius: .55rem;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    padding-left: 4px;
+    margin-top: 0.3rem;
+}
+
+#div_reorder_guide_message{
+    margin-top: 1.5rem;
+}
+#div_reorder_guide_message p{
+    margin-bottom: 0rem;
+}
+
+ul.cvf_uploaded_files li {
+    /* background-color: #fff; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;  */
+    display: inline-block;
+    /* float: left;  */
+    margin: 10px;
+    /* padding: 2px;  */
+    width: 100px; 
+    height: 110px; 
+    line-height: 110px; 
+    position: relative;
+}
+/* 파일 미리보기 사이즈 */
+ul.cvf_uploaded_files li img.img-thumb {
+    width: 100px; 
+    height: 110px;
+}
+ul.cvf_uploaded_files .ui-selected {
+    background: rgb(255, 255, 255);
+}
+ul.cvf_uploaded_files .highlight {
+    border: 1px dashed rgb(134, 134, 134); 
+    width: 100px; 
+    background-color: #e6e7ee; 
+    border-radius: 5px;
+}
+/* 사진 미리보기 삭제 버튼 이미지 css */
+ul.cvf_uploaded_files .delete-btn {
+    width: 24px; 
+    border: 0; 
+    position: absolute; 
+    top: -19px; 
+    right: -4px;
+}
+
+#title_article[type="text"]{
+    font-size:2.5rem;
+    font-weight: bold;
+    /* display-1 ~ display-4 클래스 폰트 크기 */
+    /* font-size:5rem;
+    font-size:3.5rem;
+    font-size:2.5rem;
+    font-size:1.875rem; */
+}
+
+#title_article::placeholder{
+    /* color: #525480;       원래 text-muted 색 */
+    /* color: #9FA1CD;  */      /* 더 밝게 2단계*/
+    color: #8587B3;         /*더 밝게 1단계*/
+    font-weight: normal;    
+}
+
+#h3_profile_card_name{
+    text-align: center;
+}
+
+#ul_right_sidebar{      /* 왼쪽 글 목록 모음 사이드바 */
+    overflow: auto;
+    height: 640px;      /* 스크롤바가 생기기 시작하는 height */
+}
+
+#p_profile_selfIntro{
+    white-space: pre-wrap;
+}
+
+@media (min-width: 992px) {
+    .my_media_adjust_left_sidebar{
+        max-width: 50px;
+    }
+    .my_media_adjust_right_sidebar{
+        max-width: 70px;
+    }
+}
+@media (max-width: 992px) {
+    .my_media_adjust_left_sidebar{
+        max-width: 50px;
+    }
+    .my_media_adjust_right_sidebar{
+        max-width: 70px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .my_media_adjust_left_sidebar{
+        max-width: 240px;
+    }
+    .my_media_adjust_right_sidebar{
+        max-width: 240px;
+    }
+}

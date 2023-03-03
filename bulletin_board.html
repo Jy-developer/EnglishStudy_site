@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice</title>
+
+    <!-- Fontawesome -->
+    <link type="text/css" href="/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <!-- Pixel CSS -->
+    <link type="text/css" href="/css/neumorph/neumorphism.css" rel="stylesheet">
+    <link rel="stylesheet" href="/vendor/bootstrap-icons-1.5.0/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/bulletin_board.css">
+</head>
+<body>    
+    <div id="loading">
+        <img id="loading-image" src="/img/loading/mist.gif" alt="Loading...">
+    </div>
+
+    <!-- top Navbar 부분 -->
+    <header class="header-global">
+        <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-light navbar-transparent navbar-theme-primary">
+            <div class="container position-relative">
+                <a class="navbar-brand shadow-soft py-2 px-3 rounded border border-light mr-lg-4" onclick="my_custom_vars.toGallery();">
+                    <img class="navbar-brand-dark" src="/img/top_logo.png" alt="">
+                    <img class="navbar-brand-light" src="/img/top_logo.png" alt="">
+                </a>
+                <div class="navbar-collapse collapse">
+                    <h4 class="m-0" id="time_changing_msg"><small class="text-muted ml-0" id="nameToHello"></small></h4>                    
+                </div>
+                <div class="navbar-collapse collapse flex-row-reverse mr-3" id="navbar_global">
+                    <div class="navbar-collapse-header">
+                        <div class="row">
+                            <div class="col-6 collapse-brand">
+                                <a class="navbar-brand shadow-soft py-2 px-3 rounded border border-light">
+                                    <img src="/img/top_logo.png" alt="">
+                                </a>
+                            </div>
+                            <div class="col-6 collapse-close">
+                                <a href="#navbar_global" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link py-0 px-1" onclick="my_custom_vars.toWriteArticle();" data-toggle="tooltip" data-placement="bottom" title data-original-title="Write">
+                                <span class="nav-link-inner-text"><span class="fas fa-2x fa-pen-fancy mr-1"></span></span>                                
+                            </a>                            
+                        </li>
+                        <li class="nav-item">                            
+                            <a onclick="my_custom_vars.toGallery();" class="nav-link py-0 px-1" data-toggle="tooltip" data-placement="bottom" title data-original-title="Gallery">
+                                <span class="nav-link-inner-text"><span class="fas fa-2x fa-image mr-1"></span></span>                                
+                            </a>                            
+                        </li>                        
+                        <li class="nav-item">                            
+                            <a class="nav-link py-0 px-1" onclick="my_custom_vars.toNotice();" data-toggle="tooltip" data-placement="bottom" title data-original-title="Announcement">
+                                <!-- 여기 아이콘 글 new 알림 수에 따라 프로그래밍적으로 변경 -->
+                                <span class="nav-link-inner-text"><i class="bi bi-megaphone-fill" style="font-size: 2rem;"></i></span>                                
+                            </a>                            
+                        </li>                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link py-2 px-1" data-toggle="dropdown">
+                                <span class="nav-link-inner-text"><span class="fas fa-2x fa-cog mr-1"></span></span>                                
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg">
+                                <div class="col-auto px-0" data-dropdown-content>
+                                    <div class="list-group list-group-flush">
+                                        <a class="list-group-item list-group-item-action d-flex align-items-center p-0 py-3 px-lg-4" onclick="my_custom_vars.toMyProfile();">
+                                            <span class="icon icon-sm icon-secondary"><span class="fas fa-users-cog"></span></span>
+                                            <div class="ml-4">
+                                                <span class="text-dark d-block">My Profile</span>
+                                                <span class="small">Edit my picture and profile</span>
+                                            </div>
+                                        </a>
+                                        <a class="list-group-item list-group-item-action d-flex align-items-center p-0 py-3 px-lg-4" id="a_quit_account_btn">
+                                            <span class="icon icon-sm icon-secondary"><span class="fas fa-door-open"></span></span>
+                                            <div class="ml-4">
+                                                <span class="text-dark d-block">Delete my account</span>
+                                                <span class="badge badge-sm badge-danger ml-2">Warning</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center">                    
+                    <a id="logout_btn" class="btn btn-primary d-none d-md-inline-block font-weight-bold"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+                    <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="section bg-primary pt-0 section-lg">            
+            <div class="container mt-8">
+                <!-- 메인 페이지 -->
+                <div class="row justify-content-center mb-5">
+                    <div class="col-12 col-md-10 col-lg-8 text-center">
+                        <h1 class="text-center">Announcement</h1>
+                        <a id="a_write_notice_btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Write Notice" style="display: none;">
+                            <span class="fas fa-2x fa-pen-fancy mr-4"></span>
+                        </a>
+                        <a id="a_admin_summary_btn" data-toggle="tooltip" data-placement="bottom" data-original-title="Show summary" style="display: none;">
+                            <span class="fas fa-2x fa-chalkboard-teacher"></span>
+                        </a>
+                    </div>               
+                </div>                
+
+                <!-- Accordian -->
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <div class="accordion shadow-soft rounded" id="div_accordion">                            
+                            <!-- 테이블 헤드만 unclickable 그리고 처음부터 표시 -->
+                            <div class="card card-sm card-body bg-primary border-light mb-0 py-3" style="border-bottom-style: inset; border-bottom-width: 2px; border-bottom-color: #525480 !important;">
+                                <a style="cursor: default;">
+                                    <table style="width: 100%;">
+                                        <thead>
+                                            <tr style="font-size: larger;">                                                
+                                                <th style="width: 70%; text-align: center;">Title</th>
+                                                <th style="width: 15%; text-align: center;">Writer</th>
+                                                <th style="width: 15%; text-align: center;">Date</th>
+                                            </tr>
+                                        </thead>                                        
+                                    </table>                                    
+                                </a>                                
+                            </div>
+                            <!-- 이하 프로그래밍적 반복 부분 -->                           
+                                                        
+                        </div>
+                    </div>
+                </div>  
+
+        </div>          
+    </main>
+
+    <footer class="d-flex pb-5 pt-5 border-top border-light bg-primary">
+        <div class="container">        
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-center align-items-center mb-1">
+                        <div style="flex-grow: 1; visibility: hidden;">
+                            <button class="btn btn-pill" type="button" style="padding: 0.3rem 0.8rem;">
+                                <span class="mr-1"><i class="bi bi-envelope-fill"></i></span>
+                                Contact
+                            </button>
+                        </div>                        
+                        <img class="d-block" src="/img/top_logo.png" height="25" class="mb-3" alt="">
+                        <div class="d-flex flex-row-reverse" style="flex-grow: 1;">
+                            <button class="btn btn-pill" type="button" style="padding: 0.3rem 0.8rem;" id="btn_contact_administrator">
+                                <span class="mr-1"><i class="bi bi-envelope-fill"></i></span>
+                                Contact
+                            </button>
+                        </div>                        
+                    </div>
+                <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+                    <p class="font-weight-normal font-small mb-0">Copyright © Osaka Metropolitan University English Diary
+                        <span class="current-year">2021</span>. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core -->
+    <script src="/vendor/jquery/dist/jquery.min.js"></script>    
+    <script src="/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/vendor/headroom.js/dist/headroom.min.js"></script>
+
+    <!-- Vendor JS -->
+    <script src="/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+    <script src="/vendor/nouislider/distribute/nouislider.min.js"></script>
+    <script src="/js/moment/moment.js"></script>
+    <script src="/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="/vendor/jarallax/dist/jarallax.min.js"></script>
+    <script src="/js/d_css/d_css.js"></script>
+    <script src="/vendor/jquery.counterup/jquery.counterup.min.js"></script>
+    <script src="/vendor/jquery-countdown/dist/jquery.countdown.min.js"></script>
+    <script src="/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="/vendor/prismjs/prism.js"></script>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- Neumorphism JS -->
+    <script src="/js/neumorph/neumorphism.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.7.0/firebase-analytics.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-auth.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-firestore.js"></script>    
+    <script src="/__/firebase/8.7.0/firebase-storage.js"></script>        
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="/js/facebookauth.js"></script>
+    <script src="/js/common_element.js"></script>
+    <script src="/js/bulletin_board.js"></script>
+</body>
+</html>
